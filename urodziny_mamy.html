@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>38. Urodziny Mamy</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #FFDEE9, #B5FFFC);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .slide.active {
+            display: flex;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        img {
+            max-width: 300px;
+            border-radius: 50%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            margin: 20px 0;
+        }
+
+        button {
+            background-color: #ffffff;
+            color: #333;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border-radius: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #f0f0f0;
+        }
+
+        .heart {
+            font-size: 4rem;
+            color: red;
+            animation: heartbeat 1s infinite;
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Pierwszy slajd -->
+        <div class="slide active" id="slide1">
+            <h1>Wszystkiego najlepszego, Mamo!</h1>
+            <img src="image0.jpg" alt="Zdjęcie Mamy">
+            <button onclick="showSlide(2)">Dalej</button>
+        </div>
+
+        <!-- Drugi slajd -->
+        <div class="slide" id="slide2">
+            <h1>38 lat pełnych miłości i radości!</h1>
+            <img src="IMG_9146.png" alt="Zdjęcie Mamy">
+            <button onclick="showSlide(3)">Dalej</button>
+        </div>
+
+        <!-- Trzeci slajd -->
+        <div class="slide" id="slide3">
+            <h1>Kochamy Cię, Mamo! ❤️</h1>
+            <div class="heart">❤️</div>
+            <button onclick="showSlide(1)">Powrót na początek</button>
+        </div>
+    </div>
+
+    <script>
+        // Funkcja do zmiany slajdu
+        function showSlide(slideNumber) {
+            document.querySelectorAll('.slide').forEach(slide => {
+                slide.classList.remove('active');
+            });
+            document.getElementById('slide' + slideNumber).classList.add('active');
+        }
+    </script>
+</body>
+</html>
